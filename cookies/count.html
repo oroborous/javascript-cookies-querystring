@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Count</title>
+    <style>
+        body {
+            font-family: Verdana;
+            font-size: xx-large;
+        }
+
+        fieldset {
+            background-color: antiquewhite;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+<fieldset>
+    <table>
+        <tr>
+            <th>Fruit</th>
+            <th>Count</th>
+        </tr>
+        <tr>
+            <td>
+                <img src="img/apple.gif" height="100" width="100" alt="apple"/>
+            </td>
+            <td>
+                <span id="apple"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="img/bananas.gif" height="100" width="100" alt="bananas"/>
+            </td>
+            <td>
+                <span id="bananas"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="img/blueberries.gif" height="100" width="100" alt="blueberries"/>
+            </td>
+            <td>
+                <span id="blueberries"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="img/grapes.gif" height="100" width="100" alt="grapes"/>
+            </td>
+            <td>
+                <span id="grapes"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="img/kiwi.gif" height="100" width="100" alt="kiwi"/>
+            </td>
+            <td>
+                <span id="kiwi"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="img/orange.gif" height="100" width="100" alt="orange"/>
+            </td>
+            <td>
+                <span id="orange"></span>
+            </td>
+        </tr>
+    </table>
+</fieldset>
+<p>
+    <a href="click.html">Back</a>
+</p>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="cookies.js"></script>
+<script>
+    $(init);
+
+    function init() {
+        // For every div tag on the page
+        $("span").each(
+            function (index, element) {
+                // Element contains the div as a plain DOM object
+                // Get its ID
+                var id = element.id;
+                // Get the value of the cookie with the div's ID as its name
+                var clickCount = readCookie(id);
+                // If such a cookie exists...
+                if (clickCount) {
+                    // ... convert its value to a number
+                    clickCount = parseInt(clickCount);
+                } else {
+                    // ... otherwise initialize to zero
+                    clickCount = 0;
+                }
+                // Wrap the plain DOM object in a jQuery object
+                var span = $(element);
+                // Update the div's text
+                span.html(clickCount + " click" + (clickCount == 1 ? "" : "s"));
+            }
+        );
+    }
+</script>
+</body>
+</html>

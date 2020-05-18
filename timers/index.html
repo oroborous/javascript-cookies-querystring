@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Countdown!</title>
+    <style>
+        .red {
+            color: red;
+        }
+
+        .black {
+            color: black;
+        }
+
+        #clock {
+            font-size: 50px;
+            font-family: sans-serif;
+        }
+
+        .bang {
+            font-size: 100px;
+            color: orange;
+        }
+
+        .fizzle {
+            font-size: 20px;
+            color: blue;
+        }
+
+        div {
+            padding: 5px;
+        }
+
+        #clock {
+            width: 100px;
+            margin: 0 auto;
+            background-color: #eee;
+        }
+
+        #wrapper {
+            border: 2px black dotted;
+            background-color: #ccc;
+            width: 500px;
+            margin: 0 auto;
+            text-align: left;
+            padding: 20px;
+        }
+
+        #result {
+            width: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+<div id="wrapper">
+    <div>Count down for <input type="text" value="8" id="seconds" size="3"> seconds.</div>
+
+    <br/>
+
+    <div id="clock" class="black">0:00</div>
+
+    <br/>
+
+    <div>
+        <input type="button" value="Start" id="startClockButton">
+        <input type="button" value="Stop" id="stopClockButton">
+    </div>
+</div>
+
+<div id="result"></div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="timers.js"></script>
+</html>
