@@ -3,23 +3,7 @@
 
 <head>
     <title>Loan Calculator</title>
-    <style>
-        .red {
-            color: red;
-        }
-
-        .black {
-            color: black;
-        }
-
-        body {
-            background-color: beige;
-            font-family: sans-serif;
-            font-size: 24px;
-            padding: 40px;
-        }
-
-    </style>
+    <link rel="stylesheet" href="loan.css">
 </head>
 
 <body>
@@ -38,43 +22,18 @@ Desired username: <input type="text" id="username" name="username"/><br/>
 <script>
     var flashingInterval;
 
-    function flash() {
-        $("h3").toggleClass("black").toggleClass("red");
-    }
-
     $(init);
 
     function init() {
-        flashingInterval = setInterval(flash, 500);
 
-        var income = searchQueryString("income");
-        var creditScore = searchQueryString("credit");
-        var monthsAtJob = searchQueryString("months");
+    }
 
-        var amount = 100;
+    function flash() {
 
-        if (income >= 40000) {
-            if (creditScore >= 600 || monthsAtJob > 12) {
-                amount = 50000;
-            }
-        } else {
-            if (creditScore >= 600 && monthsAtJob > 12) {
-                amount = 50000;
-            }
-        }
-
-        $("p").html("You have been approved for $" + amount);
-
-        $("button").click(setUsername);
     }
 
     function setUsername() {
-        clearInterval(flashingInterval);
 
-        var desiredName = $("#username").val();
-        createCookie("username", desiredName);
-
-        $("h3").removeClass("red").addClass("black").html("Thank you, " + desiredName);
     }
 </script>
 </html>

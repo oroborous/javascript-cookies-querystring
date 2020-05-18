@@ -3,7 +3,7 @@
 
 <head>
     <title>Loan Calculator</title>
-    <link rel="stylesheet" href="loan.css">
+    <link rel="stylesheet" href="../loan.css">
 </head>
 
 <body>
@@ -20,12 +20,15 @@
 </fieldset>
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="../cookies/cookies.js"></script>
+<script src="../../cookies/cookies.js"></script>
 <script>
     $(displayGreeting);
 
     function displayGreeting() {
-
+        var username = readCookie("username");
+        if (username) {
+            $("h3").html("Welcome back, " + username);
+        }
     }
 
 </script>
