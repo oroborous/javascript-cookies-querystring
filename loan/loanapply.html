@@ -25,7 +25,11 @@
     $(displayGreeting);
 
     function displayGreeting() {
+        var username = readCookie("username");
 
+        if (username) {
+            $("h3").text("Welcome back, " + username);
+        }
     }
 
 </script>

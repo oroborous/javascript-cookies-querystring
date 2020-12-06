@@ -25,15 +25,41 @@ Desired username: <input type="text" id="username" name="username"/><br/>
     $(init);
 
     function init() {
+        flashingInterval = setInterval(flash, 100);
 
+        var income = searchQueryString("income");
+        var creditScore = searchQueryString("credit");
+        var monthsAtJob = searchQueryString("months");
+
+        var amount = 100;
+
+        if (income >= 40000) {
+            if (creditScore >= 600 || monthsAtJob > 12) {
+                amount = 50000;
+            }
+        } else {
+            if (creditScore >= 600 && monthsAtJob > 12) {
+                amount = 50000;
+            }
+        }
+
+        $("p").text("You have been approved for $" + amount);
+
+        $("button").click(setUsername);
     }
 
     function flash() {
-
+        $("h3").toggleClass("black").toggleClass("red");
     }
 
     function setUsername() {
+        clearInterval(flashingInterval);
 
+        var desiredUsername = $("#username").val();
+
+        createCookie("username", desiredUsername);
+
+        $("h3").removeClass("red").addClass("black").html("Thank you, " + desiredUsername);
     }
 </script>
 </html>

@@ -11,42 +11,41 @@ function createCookie (cookieName, cookieValue, daysTillExpires, path) {
 		// Make a string to add to the cookie
 		expires = ";expires=" + date.toUTCString();
 	}
-	// The path (URL) for which this cookie is valid
-	// If not set, defaults to path that sets the cookie
-	var path = "";
+	// The path for which this cookie is valid
+	// If not specified, defaults to path of current page
+	var pathValue = "";
 	if (path) {
-		path = ";path=" + path;
+		pathValue = ";path=" + path;
 	}
 	// Set the cookie
-	document.cookie = encodeURIComponent(cookieName) + "=" + encodeURIComponent(cookieValue) + expires + path;
+	document.cookie = cookieName + "=" + encodeURIComponent(cookieValue) + expires + pathValue;
 }
 
 function readCookie (cookieName) {
-	// Cookies are separated with semicolon
-	var allCookiesArray = document.cookie.split(";");
-	// Loop through all cookies
-	for (var i = 0; i < allCookiesArray.length; i++) {
-		// A cookie... just a string, really
-		var cookie = allCookiesArray[i];
-		// Strip off any leading spaces
-		while (cookie.charAt(0) == " ") {
-			cookie = cookie.substring(1);
-		}
-		// Find the "=" character
-		var indexOfEquals = cookie.indexOf("=");
-		// The name is on the left side
-		var left = cookie.substring(0, indexOfEquals);
-		// The cookie starts with the pattern!
-		if (left == cookieName) {
-			// The value is on the right side
-			var cookieValue = cookie.substring(indexOfEquals + 1);
-			// Return the associate value
-			return decodeURIComponent(cookieValue);
-		}
-
+	// Concatenate equals sign onto cookie name
+	var searchName = cookieName + "=";
+	// Where is "cookieName=" ?
+	var indexOfName = document.cookie.indexOf(searchName);
+	// Name not found, return null
+	if (indexOfName === -1) {
+		return null;
 	}
-	// Cookie name not found
-	return null;
+	// The value starts afters the equals sign
+	var startOfValue = searchName.length + indexOfName;
+	// Find the semicolon that ends the value
+	var indexOfSemicolon = document.cookie.indexOf(";", startOfValue);
+	// Variable to hold the value
+	var cookieValue;
+	// The last cookie doesn't end with a semicolon
+	if (indexOfSemicolon === -1) {
+		// Slice from the start of value to the end of the string
+		cookieValue = document.cookie.slice(startOfValue);
+	} else {
+		// Slice out the value
+		cookieValue = document.cookie.slice(startOfValue, indexOfSemicolon);
+	}
+	// Decode any characters that were encoded (space, comma, semicolon)
+	return decodeURIComponent(cookieValue);
 }
 
 function eraseCookie (cookieName) {

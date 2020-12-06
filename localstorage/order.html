@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Order a JavaScript Camp Shirt</title>
+</head>
+<body>
+    <div class="container w-50">
+        <div class="row">
+            <div class="col">
+                <h1>Order a JavaScript Camp Shirt</h1>
+            </div>
+        </div>
+
+        <form action="cart.html" method="get">
+            <div class="form-group">
+                <label for="size">Size</label>
+                <select id="size" name="size" class="form-control">
+                    <option value="S">Small (Age 6-7)</option>
+                    <option value="M">Medium (Age 8-9)</option>
+                    <option value="L">Large (Age 10-11)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="qty">Quantity (Limit 5)</label>
+                <input type="number" id="qty" name="qty" min="1" max="5" value="1" class="form-control">
+            </div>
+            <div class="checkbox">
+                <input type="radio" id="style-short" name="style" value="Short" checked="checked">
+                <label for="style-short">Short Sleeves</label>
+            </div>
+            <div class="checkbox">
+                <input type="radio" id="style-long" name="style" value="Long">
+                <label for="style-long">Long Sleeves</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Add To Cart</button>
+        </form>
+
+    </div>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <script src="order.js"></script>
+</body>
+</html>
