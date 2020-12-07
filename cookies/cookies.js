@@ -48,7 +48,7 @@ function readCookie (cookieName) {
 	return decodeURIComponent(cookieValue);
 }
 
-function eraseCookie (cookieName) {
+function deleteCookie (cookieName) {
 	/*
 	 * Remove a cookie by creating a blank one with the same name
 	 * and making it expire in the past.

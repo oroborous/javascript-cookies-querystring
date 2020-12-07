@@ -18,7 +18,7 @@ $(document).ready(function () {
             // Wrap the plain DOM object in a jQuery object
             var span = $(element);
             // Update the div's text
-            span.html(clickCount + " click" + (clickCount == 1 ? "" : "s"));
+            span.html(clickCount + " click" + (clickCount === 1 ? "" : "s"));
         }
     );
 });

@@ -21,15 +21,18 @@ $(document).ready(function () {
         // For every anchor tag, erase the cookie with a name
         // that equals the anchor's ID
         $("a").each(function (index, element) {
-            eraseCookie(element.id);
+            deleteCookie(element.id);
         });
         // Forward to the count page
         window.location = "count.html";
     }
 
     function clearOneCookie() {
+        // Get the cookie-name data of the button that
+        // was clicked
         var cookieType = $(this).data("cookie-name");
-        eraseCookie(cookieType);
+        // Delete the cookie with the same name ("apple", "kiwi")
+        deleteCookie(cookieType);
         // Forward to the count page
         window.location = "count.html";
     }
