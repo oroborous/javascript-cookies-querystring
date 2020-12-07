@@ -8,16 +8,15 @@ $(document).ready(function () {
     function displaySingleItem() {
         var orderInfo = JSON.parse(localStorage.getItem("order"));
 
-        var sleeveStyle = orderInfo.style;
-        var size = orderInfo.size;
-        var qty = orderInfo.qty;
+        // Create table cells with text inside
+        var itemCell = $("<td>").text(`${orderInfo.style}-sleeve shirt`);
+        var sizeCell = $("<td>").text(orderInfo.size);
+        var qtyCell = $("<td>").text(orderInfo.qty);
 
-        var itemCell = $("<td>").text(`${sleeveStyle}-sleeve shirt`);
-        var sizeCell = $("<td>").text(size);
-        var qtyCell = $("<td>").text(qty);
-
+        // Add all the cells to a table row
         var tableRow = $("<tr>").append(itemCell, sizeCell, qtyCell);
 
+        // Add the table row to the tbody
         $("tbody").append(tableRow);
     }
 
@@ -26,19 +25,18 @@ $(document).ready(function () {
     to create one table row for each object.
      */
     function displayManyItems() {
-        var orderArray = JSON.parse(localStorage.getItem("order"));
+        var orderArray = JSON.parse(localStorage.getItem("cart"));
 
         for (var orderInfo of orderArray) {
-            var sleeveStyle = orderInfo.style;
-            var size = orderInfo.size;
-            var qty = orderInfo.qty;
+            // Create table cells with text inside
+            var itemCell = $("<td>").text(`${orderInfo.style}-sleeve shirt`);
+            var sizeCell = $("<td>").text(orderInfo.size);
+            var qtyCell = $("<td>").text(orderInfo.qty);
 
-            var itemCell = $("<td>").text(`${sleeveStyle}-sleeve shirt`);
-            var sizeCell = $("<td>").text(size);
-            var qtyCell = $("<td>").text(qty);
-
+            // Add all the cells to a table row
             var tableRow = $("<tr>").append(itemCell, sizeCell, qtyCell);
 
+            // Add the table row to the tbody
             $("tbody").append(tableRow);
         }
     }
