@@ -26,7 +26,7 @@ function searchQueryString (fieldName) {
 		var indexOfEquals = nameValuePair.indexOf("=");
 		// Substring everything up to (not including) the "="
 		var name = nameValuePair.substring(0, indexOfEquals);
-		if (name == fieldName) {
+		if (name === fieldName) {
 			// Substring everything after the "="
 			var value = nameValuePair.substring(indexOfEquals + 1);
 			// Store this matching value
