@@ -4,9 +4,9 @@ $(document).ready(function () {
         function (index, element) {
             // Element contains the div as a plain DOM object
             // Get its ID
-            var id = element.id;
+            let id = element.id;
             // Get the value of the cookie with the div's ID as its name
-            var clickCount = readCookie(id);
+            let clickCount = readCookie(id);
             // If such a cookie exists...
             if (clickCount) {
                 // ... convert its value to a number
@@ -16,7 +16,7 @@ $(document).ready(function () {
                 clickCount = 0;
             }
             // Wrap the plain DOM object in a jQuery object
-            var span = $(element);
+            let span = $(element);
             // Update the div's text
             span.html(clickCount + " click" + (clickCount === 1 ? "" : "s"));
         }

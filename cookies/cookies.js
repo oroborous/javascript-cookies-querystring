@@ -1,11 +1,11 @@
 function createCookie (cookieName, cookieValue, daysTillExpires, path) {
 	// The expiration date for this cookie
 	// If blank, cookie expires when browser is closed
-	var expires = "";
+	let expires = "";
 	// Was an expiration specified?
 	if (daysTillExpires) {
 		// Get a new date object, which will be set to the current date/time
-		var date = new Date();
+		let date = new Date();
 		// Update the time to be in the future
 		date.setTime(date.getTime() + (daysTillExpires * 24 * 60 * 60 * 1000));
 		// Make a string to add to the cookie
@@ -13,7 +13,7 @@ function createCookie (cookieName, cookieValue, daysTillExpires, path) {
 	}
 	// The path for which this cookie is valid
 	// If not specified, defaults to path of current page
-	var pathValue = "";
+	let pathValue = "";
 	if (path) {
 		pathValue = ";path=" + path;
 	}
@@ -23,19 +23,19 @@ function createCookie (cookieName, cookieValue, daysTillExpires, path) {
 
 function readCookie (cookieName) {
 	// Concatenate equals sign onto cookie name
-	var searchName = cookieName + "=";
+	let searchName = cookieName + "=";
 	// Where is "cookieName=" ?
-	var indexOfName = document.cookie.indexOf(searchName);
+	let indexOfName = document.cookie.indexOf(searchName);
 	// Name not found, return null
 	if (indexOfName === -1) {
 		return null;
 	}
 	// The value starts afters the equals sign
-	var startOfValue = searchName.length + indexOfName;
+	let startOfValue = searchName.length + indexOfName;
 	// Find the semicolon that ends the value
-	var indexOfSemicolon = document.cookie.indexOf(";", startOfValue);
+	let indexOfSemicolon = document.cookie.indexOf(";", startOfValue);
 	// Variable to hold the value
-	var cookieValue;
+	let cookieValue;
 	// The last cookie doesn't end with a semicolon
 	if (indexOfSemicolon === -1) {
 		// Slice from the start of value to the end of the string
